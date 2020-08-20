@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react';
-import AgoraRTC from 'agora-rtc-sdk';
+import AgoraRTC from '../utils/AgoraEnchancer';
 import { Notyf } from 'notyf';
 import StreamPlayer from 'agora-stream-player';
 import useMediaStream from '../hooks/useMediaStream';
