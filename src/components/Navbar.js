@@ -25,7 +25,9 @@ const Navbar = () => {
 			{dropdownOpen && (
 				<div className='more-items-dropdown'>
 					<ul>
-						<li></li>
+						<li>
+
+						</li> 
 					</ul>
 				</div>
 			)}

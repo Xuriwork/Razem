@@ -1937,6 +1937,18 @@ agora-rtc-sdk@^3.1.2:
   resolved "https://registry.yarnpkg.com/agora-rtc-sdk/-/agora-rtc-sdk-3.1.2.tgz#2d642c3d2610dc4bb7c90cb3024007fc946d0227"
   integrity sha512-HFGKX+Hs0p+6MG0PiseA3nX4+5Xp9F2QaJ6KfdqdITII1hDJPJaZPyiA/ZczYsDsbSbFm9mYpEtPMBpv+zWcqg==
 
+agora-stream-player@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/agora-stream-player/-/agora-stream-player-1.2.0.tgz#dae292fecd46c22114e0c584d14edda0935ecc14"
+  integrity sha512-0w6iWUKc2YaRbqw+QoBltVttiP0o+SnNV9ja8yYbmE0w2H8QvsgNW5mE+PsFHBkeq4xBf9t19o4rvKG2em5szA==
+
+agoran-awe@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/agoran-awe/-/agoran-awe-1.1.2.tgz#64983b0bab0a97c27bf95c0fb63f7ebc06da3a19"
+  integrity sha512-AZ1ZKdP6evxEJ1bT0IRj72Z28fRDQnO5gb7dCuJes1P4mWC1jQxU68ETDYlS75cqNyEsXEu+qTfe/7LISDQc+w==
+  dependencies:
+    wolfy87-eventemitter "^5.2.6"
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
@@ -7392,6 +7404,11 @@ normalize-url@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
+notyf@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/notyf/-/notyf-3.9.0.tgz#012a83d989a5017c9a37c23372ee20f78d8b33ba"
+  integrity sha512-3zqV/AuP8w5OpPhUElsLte1BFfL42tswMZM5Ya24w7GozMsQTJRYsQQgqmA9oylDL3t5TE7F4rP3ZGM6JfaKOQ==
+
 npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"
@@ -11132,6 +11149,11 @@ wide-align@^1.1.0:
   integrity sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
   dependencies:
     string-width "^1.0.2 || 2"
+
+wolfy87-eventemitter@^5.2.6:
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/wolfy87-eventemitter/-/wolfy87-eventemitter-5.2.9.tgz#e879f770b30fbb6512a8afbb330c388591099c2a"
+  integrity sha512-P+6vtWyuDw+MB01X7UeF8TaHBvbCovf4HPEMF/SV7BdDc1SMTiBy13SRD71lQh4ExFTG1d/WNzDGDCyOKSMblw==
 
 word-wrap@~1.2.3:
   version "1.2.3"
