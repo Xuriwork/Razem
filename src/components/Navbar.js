@@ -6,6 +6,8 @@ const Navbar = () => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
+	console.log(isAuthenticated);
+
 	const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 	
 	return (

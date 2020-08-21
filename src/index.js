@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Auth0ProviderWithHistory from './auth0-provider-with-history';
+import Auth0ProviderWithHistory from './utils/auth0-provider-with-history';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 

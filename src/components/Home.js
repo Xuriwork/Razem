@@ -1,9 +1,9 @@
 import React, { useReducer, useState } from 'react';
 import AgoraRTC from '../utils/AgoraEnchancer';
 import { Notyf } from 'notyf';
-import StreamPlayer from 'agora-stream-player';
 import useMediaStream from '../hooks/useMediaStream';
 import useMicrophone from '../hooks/useMicrophone';
+import Stream from './Stream';
 
 const notyf = new Notyf({
 	position: { x: 'right', y: 'top' },
@@ -69,27 +69,8 @@ const reducer = (state = defaultState, action) => {
 	}
 };
 
-const Video = ({ localStream, remoteStreamList }) => {
-	return (
-		<div>
-			{localStream && (
-				<StreamPlayer stream={localStream} fit='contain' label='local' />
-			)}
-			{remoteStreamList.map((stream) => (
-				<StreamPlayer
-					key={stream.getId()}
-					stream={stream}
-					fit='contain'
-					label={stream.getId()}
-				/>
-			))}
-		</div>
-	);
-};
-
 const Home = () => {
 	const [isJoined, setisJoined] = useState(false);
-	const [isPublished, setIsPublished] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [agoraClient, setClient] = useState(undefined);
 
@@ -104,8 +85,7 @@ const Home = () => {
 			value: e.target.value,
 		});
 	};
-
-	// Starts the video call
+	
 	const handleJoin = async () => {
 		const client = AgoraRTC.createClient({
 			mode: state.mode,
@@ -126,10 +106,8 @@ const Home = () => {
 			});
 
 			await stream.init();
-
 			await client.publish(stream);
 
-			setIsPublished(true);
 			setisJoined(true);
 			notyf.success(`Joined channel ${state.channel}`);
 		} catch (error) {
@@ -139,48 +117,20 @@ const Home = () => {
 		}
 	};
 
-	const publish = async () => {
-		setIsLoading(true);
-		try {
-			if (localStream) {
-				// Publish the stream to the channel.
-				await agoraClient.publish(localStream);
-				setIsPublished(true);
-			}
-			notyf.open({ type: 'info', message: 'Stream published' });
-		} catch (err) {
-			notyf.error(`Failed to publish, ${err}`);
-		} finally {
-			setIsLoading(false);
-		}
-	};
-
 	const leave = async () => {
 		setIsLoading(true);
 		try {
 			if (localStream) {
-				// Closes the local stream. This de-allocates the resources and turns off the camera light
 				localStream.close();
-				// unpublish the stream from the client
 				agoraClient.unpublish(localStream);
 			}
 			await agoraClient.leave();
-			setIsPublished(false);
 			setisJoined(false);
 			notyf.open({ type: 'info', message: 'Left channel' });
 		} catch (error) {
 			notyf.error(`Failed to leave, ${error}`);
 		} finally {
 			setIsLoading(false);
-		}
-	};
-
-	const unpublish = () => {
-		if (localStream) {
-			// unpublish the stream from the client
-			agoraClient.unpublish(localStream);
-			setIsPublished(false);
-			notyf.open({ type: 'info', message: 'Stream unpublished' });
 		}
 	};
 
@@ -192,18 +142,6 @@ const Home = () => {
 				disabled={isLoading}
 			>
 				{isJoined ? 'Leave' : 'Join'}
-			</button>
-		);
-	};
-
-	const PubUnpubButton = () => {
-		return (
-			<button
-				onClick={isPublished ? unpublish : publish}
-				variant='contained'
-				disabled={!isJoined || isLoading}
-			>
-				{isPublished ? 'Unpublish' : 'Publish'}
 			</button>
 		);
 	};
@@ -229,7 +167,7 @@ const Home = () => {
 				</select>
 				<JoinLeaveButton onClick={handleJoin}>Join</JoinLeaveButton>
 			</div>
-			<Video localStream={localStream} remoteStreamList={remoteStreamList} />
+			<Stream localStream={localStream} remoteStreamList={remoteStreamList} />
 		</div>
 	);
 };
