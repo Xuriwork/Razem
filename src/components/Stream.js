@@ -2,9 +2,6 @@ import React from 'react';
 import StreamPlayer from 'agora-stream-player';
 
 export const Stream = ({ localStream, remoteStreamList }) => {
-    console.log(localStream);
-    console.log(remoteStreamList);
-    
 	return (
 		<div>
 			{localStream && (
