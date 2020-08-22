@@ -87,6 +87,8 @@ const Home = () => {
 	};
 	
 	const handleJoin = async () => {
+		if (state.channel.trim() === '') return;
+		
 		const client = AgoraRTC.createClient({
 			mode: state.mode,
 			codec: state.codec,
