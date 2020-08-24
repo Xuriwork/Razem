@@ -7,14 +7,13 @@ const SignIn = () => {
 	const { register, handleSubmit } = useForm();
 
 	const handleSignIn = handleSubmit(async (data) => {
-        console.log(data);
-        const { username, password } = data;
+        const { email, password } = data;
 
         try {
-            const user = await Auth.signIn(username, password);
+            const user = await Auth.signIn(email, password);
             console.log(user);
         } catch (error) {
-            console.log('error signing in', error);
+            console.log('Sign in error: ', error);
         }
 	});
 
@@ -22,7 +21,7 @@ const SignIn = () => {
 		<div className='sign-in-component'>
 			<div>
 				<form>
-					<label>Username *</label>
+					<label>Email *</label>
 					<input
 						type='email'
 						name='email'
