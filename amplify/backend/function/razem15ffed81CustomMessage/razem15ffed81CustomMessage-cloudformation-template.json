@@ -69,12 +69,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"razemac36d2d5CustomMessage",
+						"razem15ffed81CustomMessage",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"razemac36d2d5CustomMessage",
+									"razem15ffed81CustomMessage",
 									"-",
 									{
 										"Ref": "env"
@@ -118,8 +118,8 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-razem-dev-212359-deployment",
-					"S3Key": "amplify-builds/razemac36d2d5CustomMessage-357845443446462f5162-build.zip"
+					"S3Bucket": "amplify-razem-dev-225919-deployment",
+					"S3Key": "amplify-builds/razem15ffed81CustomMessage-6353646e593135492f72-build.zip"
 				}
 			}
 		},
@@ -129,12 +129,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"razemac36d2d5CustomMessage",
+						"razem15ffed81CustomMessage",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"razemac36d2d5CustomMessage",
+									"razem15ffed81CustomMessage",
 									"-",
 									{
 										"Ref": "env"

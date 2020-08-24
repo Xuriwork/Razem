@@ -11,13 +11,13 @@ Parameters:
   
   
   
-  functionrazemac36d2d5CustomMessageArn: 
+  functionrazem15ffed81CustomMessageArn: 
     Type: String
-    Default: functionrazemac36d2d5CustomMessageArn
+    Default: functionrazem15ffed81CustomMessageArn
   
-  functionrazemac36d2d5CustomMessageName: 
+  functionrazem15ffed81CustomMessageName: 
     Type: String
-    Default: functionrazemac36d2d5CustomMessageName
+    Default: functionrazem15ffed81CustomMessageName
   
   
   
@@ -97,7 +97,10 @@ Parameters:
                                       
   useDefault:
     Type: String
-              
+                      
+  usernameAttributes:
+    Type: CommaDelimitedList
+      
   triggers:
     Type: String
                       
@@ -148,7 +151,7 @@ Resources:
   # Created to allow the UserPool SMS Config to publish via the Simple Notification Service during MFA Process
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, 'razemac36d2d5_sns-role', !Join ['',[ 'sns', 'ac36d2d5', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, 'razem15ffed81_sns-role', !Join ['',[ 'sns', '15ffed81', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument: 
         Version: "2012-10-17"
         Statement: 
@@ -160,10 +163,10 @@ Resources:
               - "sts:AssumeRole"
             Condition: 
               StringEquals:
-                sts:ExternalId: razemac36d2d5_role_external_id
+                sts:ExternalId: razem15ffed81_role_external_id
       Policies: 
         - 
-          PolicyName: razemac36d2d5-sns-policy
+          PolicyName: razem15ffed81-sns-policy
           PolicyDocument: 
             Version: "2012-10-17"
             Statement: 
@@ -193,7 +196,7 @@ Resources:
       LambdaConfig:
         
         
-          CustomMessage: !Ref functionrazemac36d2d5CustomMessageArn
+          CustomMessage: !Ref functionrazem15ffed81CustomMessageArn
         
         
         
@@ -217,12 +220,14 @@ Resources:
           RequireNumbers: false
           RequireSymbols: false
           RequireUppercase: false
+      
+      UsernameAttributes: !Ref usernameAttributes
           
       MfaConfiguration: !Ref mfaConfiguration
       SmsVerificationMessage: !Ref smsVerificationMessage
       SmsConfiguration: 
         SnsCallerArn: !GetAtt SNSRole.Arn
-        ExternalId: razemac36d2d5_role_external_id
+        ExternalId: razem15ffed81_role_external_id
     
   
     
@@ -233,7 +238,7 @@ Resources:
     Properties: 
       Action: "lambda:invokeFunction"
       Principal: "cognito-idp.amazonaws.com"
-      FunctionName: !Ref functionrazemac36d2d5CustomMessageName
+      FunctionName: !Ref functionrazem15ffed81CustomMessageName
       SourceArn: !GetAtt UserPool.Arn
     
   
@@ -251,7 +256,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: razemac36d2d5_app_clientWeb
+      ClientName: razem15ffed81_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -261,7 +266,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: razemac36d2d5_app_client
+      ClientName: razem15ffed81_app_client
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -272,7 +277,7 @@ Resources:
   # Created to execute Lambda which gets userpool app client config values
     Type: 'AWS::IAM::Role'
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', 'ac36d2d5', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', '15ffed81', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -326,7 +331,7 @@ Resources:
   # Marked as depending on UserPoolClientRole for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: razemac36d2d5_userpoolclient_lambda_iam_policy
+      PolicyName: razem15ffed81_userpoolclient_lambda_iam_policy
       Roles: 
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -343,7 +348,7 @@ Resources:
   # Marked as depending on UserPoolClientLambdaPolicy for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: razemac36d2d5_userpoolclient_lambda_log_policy
+      PolicyName: razem15ffed81_userpoolclient_lambda_log_policy
       Roles: 
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -383,7 +388,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties: 
-      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'razemac36d2d5_identitypool_ac36d2d5', !Join ['',['razemac36d2d5_identitypool_ac36d2d5', '__', !Ref env]]]
+      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'razem15ffed81_identitypool_15ffed81', !Join ['',['razem15ffed81_identitypool_15ffed81', '__', !Ref env]]]
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient

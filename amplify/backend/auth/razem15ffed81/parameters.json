@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "razemac36d2d5_identitypool_ac36d2d5",
+    "identityPoolName": "razem15ffed81_identitypool_15ffed81",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "razemac36d2d5",
-    "userPoolName": "razemac36d2d5_userpool_ac36d2d5",
+    "resourceNameTruncated": "razem15ffed81",
+    "userPoolName": "razem15ffed81_userpool_15ffed81",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "razemaac36d2d5_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "razem115ffed81_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "ac36d2d5",
-    "resourceName": "razemac36d2d5",
+    "sharedId": "15ffed81",
+    "resourceName": "razem15ffed81",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,9 +46,12 @@
         ]
     },
     "useDefault": "default",
+    "usernameAttributes": [
+        "email"
+    ],
     "triggers": "{\"CustomMessage\":[\"verification-link\"]}",
     "userPoolGroupList": [],
-    "verificationBucketName": "razemac36d2d5verificationbucket",
+    "verificationBucketName": "razem15ffed81verificationbucket",
     "parentStack": {
         "Ref": "AWS::StackId"
     },
@@ -56,7 +59,7 @@
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "razemac36d2d5CustomMessage",
+            "resourceName": "razem15ffed81CustomMessage",
             "triggerProvider": "Cognito",
             "attributes": [
                 "Arn",

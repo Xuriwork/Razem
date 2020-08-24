@@ -1,19 +1,19 @@
 {
 	"function": {
-		"razemac36d2d5CustomMessage": {
+		"razem15ffed81CustomMessage": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
 		}
 	},
 	"auth": {
-		"razemac36d2d5": {
+		"razem15ffed81": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [
 				{
 					"category": "function",
-					"resourceName": "razemac36d2d5CustomMessage",
+					"resourceName": "razem15ffed81CustomMessage",
 					"triggerProvider": "Cognito",
 					"attributes": [
 						"Arn",
@@ -32,7 +32,7 @@
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authrazemac36d2d5"
+							"userPoolId": "authrazem15ffed81"
 						}
 					},
 					"additionalAuthenticationProviders": []

@@ -1,27 +1,34 @@
 import React from 'react';
 
 import { useAuth0 } from '@auth0/auth0-react';
-import { withAuthenticator } from 'aws-amplify-react';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Loading from './components/Loading';
+import Home from './components/Home';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 
 import './App.scss';
 import 'notyf/notyf.min.css';
 
-
 const App = () => {
-  const { isLoading } = useAuth0();
+	const { isLoading } = useAuth0();
 
-  if (isLoading) return <Loading />
-  
-  return (
-		<div className='app-component'>
-			<Navbar />
-			<Home />
-		</div>
+	if (isLoading) return <Loading />;
+
+	return (
+		<Router>
+			<div className='app-component'>
+				<Navbar />
+				<Switch>
+					<Home exact path='/' component={Home} />
+					<Route path='/sign-in' component={SignIn} />
+					<Route path='/sign-up' component={SignUp} />
+				</Switch>
+			</div>
+		</Router>
 	);
-}
+};
 
-export default withAuthenticator(App, { includeGreettings: true });
+export default App;

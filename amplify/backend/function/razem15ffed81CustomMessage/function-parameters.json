@@ -3,9 +3,9 @@
   "modules": [
     "verification-link"
   ],
-  "parentResource": "razemac36d2d5",
-  "functionName": "razemac36d2d5CustomMessage",
-  "resourceName": "razemac36d2d5CustomMessage",
+  "parentResource": "razem15ffed81",
+  "functionName": "razem15ffed81CustomMessage",
+  "resourceName": "razem15ffed81CustomMessage",
   "parentStack": "auth",
   "triggerEnvs": [
     {
@@ -15,7 +15,7 @@
   ],
   "triggerDir": "C:\\Users\\xxeno\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\utils/../triggers/CustomMessage",
   "triggerTemplate": "CustomMessage.json.ejs",
-  "roleName": "razemac36d2d5CustomMessage",
+  "roleName": "razem15ffed81CustomMessage",
   "skipEdit": true,
   "REDIRECTURL": "",
   "EMAILSUBJECT": "",

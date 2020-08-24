@@ -6,6 +6,7 @@ import App from './App';
 import Auth0ProviderWithHistory from './utils/auth0-provider-with-history';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
+import '@aws-amplify/ui/dist/style.css';
 
 Amplify.configure(config);
 

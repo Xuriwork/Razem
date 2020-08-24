@@ -155,3 +155,51 @@
     height: 50px;
   }
 }
+
+.sign-in-component, .sign-up-component {
+  @extend %flex-center-column;
+  width: 100%;
+
+  > div {
+    @extend %flex-center-column;
+    background-color: #ffffff;
+    height: 400px;
+    max-width: 95%;
+    width: 550px;
+    border-radius: 10px;
+  }
+
+  form {
+    @extend %flex-center-column;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 60px;
+
+    input {
+      background-color: #f0f0f0;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    label {
+      width: 100%;
+    }
+
+    button {
+      text-transform: uppercase;
+      padding: 10px 0;
+      background-color: #9292e9;
+      color: #ffffff;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 0.9em;
+      width: 100%;
+    }
+  }
+}
