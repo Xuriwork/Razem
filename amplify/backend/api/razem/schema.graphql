@@ -1,0 +1,5 @@
+type Message @model @auth(rules: [{ allow: owner, queries: null }]) {
+  id: ID!
+  name: String!
+  content: String
+}

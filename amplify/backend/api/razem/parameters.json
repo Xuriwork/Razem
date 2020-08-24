@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "razem",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authrazemac36d2d5",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

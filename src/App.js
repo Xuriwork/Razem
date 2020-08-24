@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useAuth0 } from '@auth0/auth0-react';
+import { withAuthenticator } from 'aws-amplify-react';
 
 import Home from './components/Home';
 import Navbar from './components/Navbar';
@@ -23,4 +24,4 @@ const App = () => {
 	);
 }
 
-export default App;
+export default withAuthenticator(App, { includeGreettings: true });
