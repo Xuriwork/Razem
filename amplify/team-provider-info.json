@@ -12,15 +12,9 @@
             "AmplifyAppId": "d1mv5loxt0pnoz"
         },
         "categories": {
-            "function": {
-                "razem15ffed81CustomMessage": {
-                    "REDIRECTURL": "",
-                    "EMAILSUBJECT": "",
-                    "EMAILMESSAGE": ""
-                }
-            },
             "auth": {
-                "razem15ffed81": {}
+                "razem423c08cc": {},
+                "userPoolGroups": {}
             }
         }
     }

@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "razem15ffed81_identitypool_15ffed81",
+    "identityPoolName": "razem423c08cc_identitypool_423c08cc",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "razem15ffed81",
-    "userPoolName": "razem15ffed81_userpool_15ffed81",
+    "resourceNameTruncated": "razem423c08cc",
+    "userPoolName": "razem423c08cc_userpool_423c08cc",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "razem115ffed81_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "razem4423c08cc_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "15ffed81",
-    "resourceName": "razem15ffed81",
+    "sharedId": "423c08cc",
+    "resourceName": "razem423c08cc",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -49,22 +49,6 @@
     "usernameAttributes": [
         "email"
     ],
-    "triggers": "{\"CustomMessage\":[\"verification-link\"]}",
     "userPoolGroupList": [],
-    "verificationBucketName": "razem15ffed81verificationbucket",
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "permissions": [],
-    "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "razem15ffed81CustomMessage",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        }
-    ]
+    "dependsOn": []
 }

@@ -1,20 +1,9 @@
 import React, { useReducer, useState } from 'react';
 import AgoraRTC from '../utils/AgoraEnchancer';
-import { Notyf } from 'notyf';
+import notyf from '../utils/notyf';
 import useMediaStream from '../hooks/useMediaStream';
 import useMicrophone from '../hooks/useMicrophone';
 import Stream from './Stream';
-
-const notyf = new Notyf({
-	position: { x: 'right', y: 'top' },
-	duration: 2000,
-	types: [
-		{
-			type: 'info',
-			background: '#40514e',
-		},
-	],
-});
 
 const defaultState = {
 	appId: 'ea06c96d0a2945029805b5b5f7c7984b',

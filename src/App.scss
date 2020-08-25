@@ -48,7 +48,7 @@
   align-items: center;
 }
 
-.sign-in-button {
+.sign-out-button {
   margin-right: 15px;
   font-size: 1em;
   color: #ffffff;
@@ -184,10 +184,11 @@
     }
 
     label {
+      font-size: 0.95em;
       width: 100%;
     }
 
-    button {
+    .form-button {
       text-transform: uppercase;
       padding: 10px 0;
       background-color: #9292e9;
@@ -200,6 +201,12 @@
     p {
       font-size: 0.9em;
       width: 100%;
+      color: #5f5ff3;
+      cursor: pointer;
+    }
+
+    .resend-confirmation-code-button {
+      text-align: left;
     }
   }
 }
