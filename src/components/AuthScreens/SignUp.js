@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 import { useForm } from 'react-hook-form';
@@ -6,7 +6,6 @@ import notyf from '../../utils/notyf';
 
 const SignUp = ({ history }) => {
 	const { register, handleSubmit } = useForm();
-	const [confirmSignUpForm, setConfirmSignUpForm] = useState(false);
 
 	const handleSignUp = handleSubmit(async (data) => {
 		const { email, password } = data;
@@ -22,8 +21,7 @@ const SignUp = ({ history }) => {
 				},
 			});
 			console.log(user);
-			setConfirmSignUpForm(true);
-			history.push('/confirm-account');
+			history.push({ pathname: '/confirm-account', state: { email: email } });
 		} catch (error) {
 			console.error('Sign up error:', error);
 			notyf.error(error);
@@ -32,7 +30,7 @@ const SignUp = ({ history }) => {
 
 	return (
 		<div className='sign-up-component'>
-			<div style={{ height: confirmSignUpForm ? '200px' : null }}>
+			<div>
 				<form>
 					<label>Email *</label>
 					<input
