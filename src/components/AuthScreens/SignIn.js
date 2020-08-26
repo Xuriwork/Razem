@@ -48,10 +48,10 @@ const SignIn = ({ history }) => {
 					/>
 					<span className='form-input-error'>{errors.password && errors.password.message}</span>
 					<p style={{ marginTop: '5px', marginBottom: '6px' }}>
-						Forget your password? <Link to='/reset-password'>Reset password</Link>
+						Forgot password? <Link to='/reset-password'>Reset password</Link>
 					</p>
 					<button onClick={handleSignIn} className='form-button'>Sign In</button>
-					<p>
+					<p style={{ textAlign: 'center' }}>
 						New user? <Link to='/sign-up'>Create account</Link>
 					</p>
 				</form>
