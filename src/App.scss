@@ -156,7 +156,7 @@
   }
 }
 
-.sign-in-component, .sign-up-component {
+.sign-in-component, .sign-up-component, .confirm-account-component {
   @extend %flex-center-column;
   width: 100%;
 
@@ -180,12 +180,15 @@
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
-      margin-bottom: 10px;
     }
 
     label {
       font-size: 0.95em;
       width: 100%;
+
+      &:not(:first-of-type) {
+        margin-top: 8px;
+      }
     }
 
     .form-button {
@@ -202,11 +205,33 @@
       font-size: 0.9em;
       width: 100%;
       color: #5f5ff3;
-      cursor: pointer;
+    }
+
+    .form-input-error {
+      width: 100%;
+      color: #f55852;
+      font-size: 0.9em;
+
     }
 
     .resend-confirmation-code-button {
       text-align: left;
     }
+  }
+}
+
+.confirm-account-component {
+  > div {
+    height: 250px;
+  }
+
+  h2 {
+    font-size: 1.15em;
+    margin-top: -8px;
+  }
+
+  h2 ~ p {
+    margin-bottom: 12px;
+    color: #a1a1a1;
   }
 }

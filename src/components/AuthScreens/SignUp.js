@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import notyf from '../../utils/notyf';
 
 const SignUp = ({ history }) => {
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit, watch, errors } = useForm();
 
 	const handleSignUp = handleSubmit(async (data) => {
 		const { email, password } = data;
@@ -21,7 +21,14 @@ const SignUp = ({ history }) => {
 				},
 			});
 			console.log(user);
-			history.push({ pathname: '/confirm-account', state: { email: email } });
+			setTimeout(
+				history.push({ pathname: '/confirm-account', state: { email: email } }),
+				2500
+			);
+			notyf.open({
+				type: 'info',
+				message: 'User not confirmed, redirecting...',
+			});
 		} catch (error) {
 			console.error('Sign up error:', error);
 			notyf.error(error);
@@ -37,26 +44,31 @@ const SignUp = ({ history }) => {
 						type='email'
 						name='email'
 						placeholder='Enter your email'
-						ref={register({ required: true })}
+						ref={register({ required: { value: true, message: 'This field is required' } })}
 					/>
+					<span className='form-input-error'>{errors.email && errors.email.message}</span>
 					<label>Password *</label>
 					<input
 						type='password'
 						name='password'
 						placeholder='Enter your password'
-						ref={register({ required: true })}
+						ref={register({
+							required: { value: true, message: 'This field is required' },
+							minLength: { value: 8, message: 'Password should be at least 8 characters' },
+						})}
 					/>
+					<span className='form-input-error'>{errors.password && errors.password.message}</span>
 					<label>Confirm Password *</label>
 					<input
 						type='password'
-						name='confirmPassword'
+						name='confirm_password'
 						placeholder='Confirm password'
-						ref={register({ required: true })}
+						ref={register({
+							required: { value: true, message: 'This field is required' },
+							validate: (value) => value === watch('password') || 'Passwords do not match'
+						})}
 					/>
-					<p>
-						Forget your password?{' '}
-						<Link to='/reset-password'>Reset password</Link>
-					</p>
+					<span className='form-input-error'>{errors.confirm_password && errors.confirm_password.message}</span>
 					<button onClick={handleSignUp} className='form-button'>
 						Sign Up
 					</button>
