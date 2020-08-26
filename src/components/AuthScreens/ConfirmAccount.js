@@ -4,14 +4,14 @@ import notyf from '../../utils/notyf';
 
 const ConfirmAccount = () => {
     const [username,] = useState('vajogi7636@sanizr.com');
-    const [code, setCode] = useState(null);
+    const [confirmationCode, setConfirmationCode] = useState(null);
 
-	const handleOnChangeCode = (e) => setCode(e.target.value);
+	const handleOnChangeCode = (e) => setConfirmationCode(e.target.value);
 
 	const handleConfirmSignUp = async (e) => {
 		e.preventDefault();
 		try {
-			await Auth.confirmSignUp(username, code)
+			await Auth.confirmSignUp(username, confirmationCode)
 			notyf.success('User confirmed')
 		} catch (error) {
 			console.log('Error confirming sign up', error);
@@ -30,10 +30,10 @@ const ConfirmAccount = () => {
 <div className='sign-up-component'>
 			<div style={{ height: '200px' }}>
 				<form>
-							<label>Verification Code</label>
+							<label>Confirmation Code</label>
 							<input
 								type='number'
-								name='verification_code'
+								name='confirmation_code'
 								onChange={handleOnChangeCode}
 								style={{ marginTop: '2px', marginBottom: 0 }}
 							/>
