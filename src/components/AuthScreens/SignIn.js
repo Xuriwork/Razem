@@ -3,7 +3,7 @@ import { Auth } from 'aws-amplify';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const SignIn = () => {
+const SignIn = ({ history }) => {
 	const { register, handleSubmit } = useForm();
 
 	const handleSignIn = handleSubmit(async (data) => {
@@ -13,6 +13,10 @@ const SignIn = () => {
             const user = await Auth.signIn(email, password);
             console.log(user);
         } catch (error) {
+			if (error.code === "UserNotConfirmedException") {
+				await Auth.resendSignUp(email);
+				history.push('/confirm-account');
+			}
             console.log('Sign in error: ', error);
         }
 	});

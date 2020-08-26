@@ -8,7 +8,6 @@ const ConfirmAccount = () => {
 
 	const handleOnChangeCode = (e) => setCode(e.target.value);
 
-
 	const handleConfirmSignUp = async (e) => {
 		e.preventDefault();
 		try {
