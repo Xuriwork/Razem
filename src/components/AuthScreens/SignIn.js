@@ -15,7 +15,7 @@ const SignIn = ({ history }) => {
         } catch (error) {
 			if (error.code === "UserNotConfirmedException") {
 				await Auth.resendSignUp(email);
-				history.push('/confirm-account');
+				history.push({ pathname: '/confirm-account', state: { email: email } });
 			}
             console.log('Sign in error: ', error);
         }
@@ -42,7 +42,7 @@ const SignIn = ({ history }) => {
 					<p>
 						Forget your password? <Link to='/reset-password'>Reset password</Link>
 					</p>
-					<button onClick={handleSignIn}>Sign In</button>
+					<button onClick={handleSignIn} className='form-button'>Sign In</button>
 					<p>
 						No account? <Link to='/sign-up'>Create account</Link>
 					</p>
