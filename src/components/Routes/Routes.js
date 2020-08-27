@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
-export const PrivateRoute = ({ component: Component, ...rest }) => {
+export const ProtectedRoute = ({ component: Component, ...rest }) => {
 	const { isAuthed } = useAuth();
 
 	return (
@@ -12,7 +12,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
 				isAuthed ? (
 					<Component auth={isAuthed} {...props} />
 				) : (
-					<Redirect to={{ pathname: '/' }} />
+					<Redirect to={{ pathname: '/sign-in' }} />
 				)
 			}
 		/>
