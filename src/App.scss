@@ -6,244 +6,270 @@
 }
 
 .app-component {
-  @extend %flex-center-column;
-  height: 100%;
-  background-image: linear-gradient(to right, rgb(127, 127, 213), rgb(158, 187, 240), rgb(179, 235, 231));
+	@extend %flex-center-column;
+	height: 100%;
+	background-image: linear-gradient(
+		to right,
+		rgb(127, 127, 213),
+		rgb(158, 187, 240),
+		rgb(179, 235, 231)
+	);
 }
 
 .loading-component {
-  @extend %flex-center-column;
-  height: 100%;
+	@extend %flex-center-column;
+	height: 100%;
 
-  .loader {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: solid 4px;
-    border-color: #7f7fd5 #7f7fd510 #7f7fd510;
-    position: relative;
-    animation-name: spin;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-  
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+	.loader {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		border: solid 4px;
+		border-color: #7f7fd5 #7f7fd510 #7f7fd510;
+		position: relative;
+		animation-name: spin;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
 }
 
 .home-component {
-  @extend %flex-center-column;
-  width: 100%;
+	@extend %flex-center-column;
+	width: 100%;
 }
 
 .navbar {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	align-items: center;
 }
 
 .sign-out-button {
-  margin-right: 15px;
-  font-size: 1em;
-  color: #ffffff;
+	margin-right: 15px;
+	font-size: 1em;
+	color: #ffffff;
 }
 
 .more-button-container {
-  width: 40px;
-  height: 35px;
+	width: 40px;
+	height: 35px;
 
-  button {
-    width: 100%;
-    height: 100%;
-    background-color: #7f7fd5;
-    border-radius: 4px;
+	button {
+		width: 100%;
+		height: 100%;
+		background-color: #7f7fd5;
+		border-radius: 4px;
 
-    img {
-      width: 16px;
-      vertical-align: -3px;
-    }
-  }
+		img {
+			width: 16px;
+			vertical-align: -3px;
+		}
+	}
 }
 
 .more-items-dropdown {
-  width: 180px;
-  position: absolute;
-  background-color: #ffffff;
-  min-height: 60px;
-  right: 0;
-  top: 45px;
-  border-radius: 8px;
-  padding: 10px;
-  box-sizing: border-box;
+	width: 180px;
+	position: absolute;
+	background-color: #ffffff;
+	min-height: 60px;
+	right: 0;
+	top: 45px;
+	border-radius: 8px;
+	padding: 10px;
+	box-sizing: border-box;
 
-  select {
-    right: 0;
-    width: 100%;
-  }
+	select {
+		right: 0;
+		width: 100%;
+	}
 }
 
 .join-channel-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #ffffff;
-  max-width: 460px;
-  width: 95%;
-  height: 200px;
-  padding: 20px;
-  box-sizing: border-box;
-  border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #ffffff;
+	max-width: 460px;
+	width: 95%;
+	height: 200px;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 10px;
 
-  label {
-    position: relative;
-    top: 12px;
-    left: 10px;
-    color: #757575;
-    font-size: 0.85em;
-  }
+	label {
+		position: relative;
+		top: 12px;
+		left: 10px;
+		color: #757575;
+		font-size: 0.85em;
+	}
 
-  input {
-    width: 100%;
-    height: 55px;
-    border-radius: 4px;
-    box-sizing: border-box;
-    border: 1px solid #bfbfca;
-    padding-top: 20px;
-    margin-top: -10px;
-    text-indent: 10px;
-    font-size: 1.15em;
-  }
+	input {
+		width: 100%;
+		height: 55px;
+		border-radius: 4px;
+		box-sizing: border-box;
+		border: 1px solid #bfbfca;
+		padding-top: 20px;
+		margin-top: -10px;
+		text-indent: 10px;
+		font-size: 1.15em;
+	}
 
-  button {
-    background-color: #7f7fd5;
-    color: #ffffff;
-    padding: 12px 0;
-    width: 100%;
-  }
+	button {
+		background-color: #7f7fd5;
+		color: #ffffff;
+		padding: 12px 0;
+		width: 100%;
+	}
 
-  h4 {
-    text-align: left;
-    width: 100%;
-    margin-top: 2px;
-  }
+	h4 {
+		text-align: left;
+		width: 100%;
+		margin-top: 2px;
+	}
 
-  select {
-    width: 100%;
-    margin-bottom: 10px;
-  }
+	select {
+		width: 100%;
+		margin-bottom: 10px;
+	}
 }
 
 .input-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
 .stream-player {
-  width: 50px;
-  height: 50px;
+	width: 50px;
+	height: 50px;
 
-  > div {
-    width: 50px;
-    height: 50px;
-  }
+	> div {
+		width: 50px;
+		height: 50px;
+	}
 }
 
-.sign-in-component, .sign-up-component, .confirm-account-component, .forgot-password-component {
-  @extend %flex-center-column;
-  width: 100%;
+.sign-in-component,
+.sign-up-component,
+.confirm-account-component,
+.forgot-password-component {
+	@extend %flex-center-column;
+	width: 100%;
 
-  > div {
-    @extend %flex-center-column;
-    background-color: #ffffff;
-    height: 400px;
-    max-width: 95%;
-    width: 550px;
-    border-radius: 10px;
-  }
+	> div {
+		@extend %flex-center-column;
+		background-color: #ffffff;
+		height: 400px;
+		max-width: 95%;
+		width: 550px;
+		border-radius: 10px;
+	}
 
-  form {
-    @extend %flex-center-column;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 60px;
+	form {
+		@extend %flex-center-column;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 60px;
 
-    input {
-      background-color: #f0f0f0;
-      width: 100%;
-      padding: 10px;
-      box-sizing: border-box;
-    }
+		input {
+			background-color: #f0f0f0;
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+		}
 
-    label {
-      font-size: 0.95em;
-      width: 100%;
+		label {
+			font-size: 0.95em;
+			width: 100%;
 
-      &:not(:first-of-type) {
-        margin-top: 8px;
-      }
-    }
+			&:not(:first-of-type) {
+				margin-top: 8px;
+			}
+		}
 
-    .form-button {
-      text-transform: uppercase;
-      padding: 10px 0;
-      background-color: #9292e9;
-      color: #ffffff;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 5px;
-    }
+		.form-button {
+			text-transform: uppercase;
+			padding: 10px 0;
+			background-color: #9292e9;
+			color: #ffffff;
+			width: 100%;
+			margin-top: 10px;
+			margin-bottom: 5px;
+		}
 
-    p {
-      font-size: 0.9em;
-      width: 100%;
-      color: #5f5ff3;
-    }
+		p {
+			font-size: 0.9em;
+			width: 100%;
+			color: #5f5ff3;
+		}
 
-    .form-input-error {
-      width: 100%;
-      color: #f55852;
-      font-size: 0.9em;
+		.form-input-error {
+			width: 100%;
+			color: #f55852;
+			font-size: 0.9em;
+		}
 
-    }
+		.resend-confirmation-code-button {
+			text-align: left;
+		}
+	}
+}
 
-    .resend-confirmation-code-button {
-      text-align: left;
-    }
-  }
+.sign-up-component {
+	.password-input-container {
+		position: relative;
+		width: 100%;
+	}
+
+	.password-requirments {
+		position: absolute;
+		top: -185px;
+		width: 250px;
+		padding: 15px;
+		background: #fefefe;
+		font-size: 0.875em;
+		border-radius: 5px;
+		box-shadow: 0 1px 3px #ccc;
+		border: 1px solid #ddd;
+	}
 }
 
 .confirm-account-component {
-  > div {
-    height: 250px;
-  }
+	> div {
+		height: 250px;
+	}
 
-  h2 {
-    font-size: 1.15em;
-    margin-top: -8px;
-  }
+	h2 {
+		font-size: 1.15em;
+		margin-top: -8px;
+	}
 
-  h2 ~ p {
-    margin-bottom: 12px;
-    color: #a1a1a1;
-  }
+	h2 ~ p {
+		margin-bottom: 12px;
+		color: #a1a1a1;
+	}
 }
 
 .forgot-password-component {
-  > div {
-    height: 230px;
-  }
+	> div {
+		height: 230px;
+	}
 
-  h2 {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    margin-top: -5px;
-  }
+	h2 {
+		font-size: 1.2em;
+		margin-bottom: 20px;
+		margin-top: -5px;
+	}
 }
