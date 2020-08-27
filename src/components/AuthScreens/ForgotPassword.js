@@ -7,7 +7,9 @@ const ForgotPassword = ({ history }) => {
     const [verificationCode, setVerificationCode] = useState('');
     const [newPassword, setNewPassword] = useState('');
 
-	const handleOnEmailChange = (e) => setEmail(e.target.value);
+    const handleOnEmailChange = (e) => setEmail(e.target.value);
+    const handleOnVerificationCodeChange = (e) => setVerificationCode(e.target.value);
+    const handleOnNewPasswordChange = (e) => setNewPassword(e.target.value);
 
 	const handleConfirmSignUp = async (e) => {
 		e.preventDefault();

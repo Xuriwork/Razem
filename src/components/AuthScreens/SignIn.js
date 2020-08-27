@@ -14,7 +14,7 @@ const SignIn = ({ history }) => {
 			Auth.signIn(email, password)
 				.then((user) => {
 				console.log(user);
-				localStorage.setItem('AUTH_USER_TOKEN_KEY', user.signInUserSession.accessToken.jwtToken);
+				localStorage.setItem('JWT_TOKEN', user.signInUserSession.accessToken.jwtToken);
 			});
         } catch (error) {
 			if (error.code === "UserNotConfirmedException") {
@@ -48,7 +48,7 @@ const SignIn = ({ history }) => {
 					/>
 					<span className='form-input-error'>{errors.password && errors.password.message}</span>
 					<p style={{ marginTop: '5px', marginBottom: '6px' }}>
-						Forgot password? <Link to='/reset-password'>Reset password</Link>
+						Forgot password? <Link to='/forgot-password'>Reset password</Link>
 					</p>
 					<button onClick={handleSignIn} className='form-button'>Sign In</button>
 					<p style={{ textAlign: 'center' }}>
