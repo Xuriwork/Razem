@@ -11,11 +11,7 @@ const SignIn = ({ history }) => {
         const { email, password } = data;
 
         try {
-			Auth.signIn(email, password)
-				.then((user) => {
-				console.log(user);
-				localStorage.setItem('JWT_TOKEN', user.signInUserSession.accessToken.jwtToken);
-			});
+			Auth.signIn(email, password);
         } catch (error) {
 			if (error.code === "UserNotConfirmedException") {
 				await Auth.resendSignUp(email);

@@ -156,7 +156,7 @@
   }
 }
 
-.sign-in-component, .sign-up-component, .confirm-account-component {
+.sign-in-component, .sign-up-component, .confirm-account-component, .forgot-password-component {
   @extend %flex-center-column;
   width: 100%;
 
@@ -233,5 +233,17 @@
   h2 ~ p {
     margin-bottom: 12px;
     color: #a1a1a1;
+  }
+}
+
+.forgot-password-component {
+  > div {
+    height: 230px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    margin-top: -5px;
   }
 }
