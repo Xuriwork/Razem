@@ -3,13 +3,19 @@ import { Auth } from 'aws-amplify';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import notyf from '../../utils/notyf';
+import { useAuth } from '../../context/AuthContext';
 
 const SignIn = ({ history }) => {
 	const { register, handleSubmit, errors } = useForm();
+	const { setUser } = useAuth();
 
 	const handleSignIn = handleSubmit(async (data) => {
         const { email, password } = data;
-		Auth.signIn(email, password).then(() => history.push('/'))
+		Auth.signIn(email, password)
+		.then((user) => {
+			setUser(user);
+			history.push('/');
+		})
 		.catch((error) => {
 			if (error.code === "UserNotConfirmedException") {
 				Auth.resendSignUp(email);

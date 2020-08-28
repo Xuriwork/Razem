@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 const ConfirmAccount = ({ location, history }) => {
 	const [confirmationCode, setConfirmationCode] = useState('');
-	if (!location.state) return <Redirect to={{ pathname: '/sign-in' }} />;
+	if (!location.state && !location.state.email) return <Redirect to={{ pathname: '/sign-in' }} />;
 	const email = location.state.email;
 
 	const handleOnCodeChange = (e) => setConfirmationCode(e.target.value);
@@ -13,13 +13,12 @@ const ConfirmAccount = ({ location, history }) => {
 	const handleConfirmSignUp = async (e) => {
 		e.preventDefault();
 
-		try {
-			await Auth.confirmSignUp(email, confirmationCode);
-			notyf.success('User confirmed');
+		await Auth.confirmSignUp(email, confirmationCode)
+		.then(() => {
+			notyf.success('User confirmed, redirecting to sign in');
 			history.push('/');
-		} catch (error) {
-			console.log('Error confirming sign up', error);
-		}
+		})
+		.catch((error) => console.log('Error confirming sign up', error));
 	};
 
 	const handleResendConfirmationCode = async () => {

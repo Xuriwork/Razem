@@ -2,7 +2,7 @@ import { Notyf } from 'notyf';
 
 export const notyf = new Notyf({
 	position: { x: 'right', y: 'top' },
-	duration: 4500,
+	duration: 5000,
 	types: [
 		{
 			type: 'info',

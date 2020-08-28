@@ -13,39 +13,39 @@ const SignUp = ({ history }) => {
 		hasLowercaseLetters: password.search(/[a-z]/) > -1,
 		hasUppercaseLetters: password.search(/[A-Z]/) > -1,
 		hasNumbers: password.search(/\d/) > -1,
-		hasSpecialCharacters:
-			password.search(/[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/) > -1,
+		hasSpecialCharacters: password.search(/[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/) > -1,
 		isAtLeast8Characters: password.length >= 8,
 	};
 
 	const handleInputFocus = () => setFocus(true);
 	const handleInputBlur = () => setFocus(false);
-	
+
 	const handleSignUp = async (data) => {
 		const { email, password } = data;
 
 		const meetsAllRequirements = Object.keys(passwordRequirements).every((key) => passwordRequirements[key]);
+
 		if (!meetsAllRequirements) return;
-		
-		try {
-			const { user } = await Auth.signUp({
-				username: email,
+
+		await Auth.signUp({
+			username: email,
+			email,
+			password,
+			attributes: {
 				email,
-				password,
-				attributes: {
-					email,
-				},
-			});
-			console.log(user);
+			},
+		})
+		.then(() => {
 			setTimeout(() => history.push({ pathname: '/confirm-account', state: { email } }), 2500);
 			notyf.open({
 				type: 'info',
 				message: 'User not confirmed, redirecting...',
 			});
-		} catch (error) {
+		})
+		.catch((error) => {
 			console.error('Sign up error:', error);
 			notyf.error(error);
-		}
+		});
 	};
 
 	return (

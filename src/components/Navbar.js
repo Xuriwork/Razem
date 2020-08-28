@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { Auth } from 'aws-amplify';
+import { withRouter } from 'react-router-dom';
 import MoreIcon from '../assets/images/icons/more.svg';
 import { useAuth } from '../context/AuthContext';
 
-const Navbar = () => {
+const Navbar = ({ history }) => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const { isAuthed } = useAuth();
 
 	const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
 	const handleSignOut = async () => {
-		try {
-			await Auth.signOut();
-		} catch (error) {
-			console.log('Error signing out: ', error);
-		}
+		await Auth.signOut()
+		.then(() => {
+			history.push('/sign-in');
+		})
+		.catch((error) => console.error('Error signing out: ', error));
 	};
 
 	return (
@@ -40,4 +41,4 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -1,5 +1,5 @@
 import { Auth } from 'aws-amplify';
-import { Loading } from 'aws-amplify-react';
+import Loading from '../components/Loading';
 import React, { useEffect, useState } from 'react';
 
 const AuthContext = React.createContext();
@@ -11,20 +11,20 @@ const AuthProvider = ({ children }) => {
 
 	useEffect(() => {
 		Auth.currentAuthenticatedUser()
-			.then((user) => {
-				setUser(user);
-				setLoading(false);
-			})
-			.catch(() => {
-				setUser(null);
-				setLoading(false);
-			});
+		.then((user) => {
+			setUser(user);
+			setLoading(false);
+		})
+		.catch(() => {
+			setUser(null);
+			setLoading(false);
+		});
 	}, []);
 
 	if (loading) return <Loading />;
 
 	return (
-		<AuthContext.Provider value={{ user, isAuthed }}>
+		<AuthContext.Provider value={{ user, isAuthed, setUser, loading }}>
 			{children}
 		</AuthContext.Provider>
 	);
