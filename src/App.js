@@ -23,8 +23,8 @@ const App = () => {
 					<ProtectedRoute exact path='/' component={Home} />
 					<PublicRoute path='/sign-up' component={SignUp} restricted={true} />
 					<PublicRoute path='/sign-in' component={SignIn} restricted={true} />
-					<ProtectedRoute path='/confirm-account' component={ConfirmAccount} />
-					<ProtectedRoute path='/forgot-password' component={ForgotPassword} />
+					<PublicRoute path='/confirm-account' component={ConfirmAccount} restricted={true} />
+					<PublicRoute path='/forgot-password' component={ForgotPassword} restricted={true} />
 					<Route component={NotFound} />
 				</Switch>
 			</div>

@@ -26,7 +26,7 @@ const ForgotPassword = ({ history }) => {
 		e.preventDefault();
 		try {
 			await Auth.forgotPasswordSubmit(email, verificationCode, newPassword);
-			setTimeout(history.push('/'), 2500);
+			setTimeout(() => history.push('/'), 2500);
 			notyf.success('Password reset successful, redirecting...');
 		} catch (error) {
 			console.log('Error confirming sign up', error);

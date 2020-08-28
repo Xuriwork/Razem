@@ -37,10 +37,7 @@ const SignUp = ({ history }) => {
 				},
 			});
 			console.log(user);
-			setTimeout(
-				history.push({ pathname: '/confirm-account', state: { email: email } }),
-				2500
-			);
+			setTimeout(() => history.push({ pathname: '/confirm-account', state: { email } }), 2500);
 			notyf.open({
 				type: 'info',
 				message: 'User not confirmed, redirecting...',

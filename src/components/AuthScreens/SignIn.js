@@ -9,18 +9,19 @@ const SignIn = ({ history }) => {
 
 	const handleSignIn = handleSubmit(async (data) => {
         const { email, password } = data;
-
-        try {
-			Auth.signIn(email, password);
-        } catch (error) {
+		Auth.signIn(email, password).then(() => history.push('/'))
+		.catch((error) => {
 			if (error.code === "UserNotConfirmedException") {
-				await Auth.resendSignUp(email);
-				setTimeout(history.push({ pathname: '/confirm-account', state: { email: email } }), 2500);
-				notyf.open({ type: 'info', message: 'User not confirmed, redirecting...' });
+				Auth.resendSignUp(email);
+				setTimeout(() => history.push({ pathname: '/confirm-account', state: { email } }), 2500);
+				return notyf.open({ 
+					type: 'info', 
+					message: 'User not confirmed, redirecting...' 
+				});
 			}
-            console.error('Sign in error: ', error);
 			notyf.error(error);
-        }
+			console.error('Sign in error: ', error);
+		});
 	});
 
 	return (
@@ -47,7 +48,7 @@ const SignIn = ({ history }) => {
 						Forgot password? <Link to='/forgot-password'>Reset password</Link>
 					</p>
 					<button onClick={handleSignIn} className='form-button'>Sign In</button>
-					<p style={{ textAlign: 'center' }}>
+					<p>
 						New user? <Link to='/sign-up'>Create account</Link>
 					</p>
 				</form>

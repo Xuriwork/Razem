@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Auth } from 'aws-amplify';
 import notyf from '../../utils/notyf';
+import { Redirect } from 'react-router-dom';
 
-const ConfirmAccount = ({ history }) => {
+const ConfirmAccount = ({ location, history }) => {
 	const [confirmationCode, setConfirmationCode] = useState('');
-	const email = history.state.email;
+	if (!location.state) return <Redirect to={{ pathname: '/sign-in' }} />;
+	const email = location.state.email;
 
 	const handleOnCodeChange = (e) => setConfirmationCode(e.target.value);
 

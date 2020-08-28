@@ -10,7 +10,7 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
 			{...rest}
 			render={(props) =>
 				isAuthed ? (
-					<Component auth={isAuthed} {...props} />
+					<Component {...props} />
 				) : (
 					<Redirect to={{ pathname: '/sign-in' }} />
 				)
