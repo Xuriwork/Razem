@@ -6,13 +6,14 @@ import { useAuth } from '../context/AuthContext';
 
 const Navbar = ({ history }) => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
-	const { isAuthed } = useAuth();
+	const { isAuthed, setUser } = useAuth();
 
 	const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
 	const handleSignOut = async () => {
 		await Auth.signOut()
 		.then(() => {
+			setUser(null);
 			history.push('/sign-in');
 		})
 		.catch((error) => console.error('Error signing out: ', error));

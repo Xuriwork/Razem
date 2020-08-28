@@ -43,7 +43,7 @@ const SignUp = ({ history }) => {
 			});
 		})
 		.catch((error) => {
-			console.error('Sign up error:', error);
+			console.error('Error at Sign up:', error);
 			notyf.error(error);
 		});
 	};

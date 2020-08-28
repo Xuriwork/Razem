@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 const ConfirmAccount = ({ location, history }) => {
 	const [confirmationCode, setConfirmationCode] = useState('');
-	if (!location.state && !location.state.email) return <Redirect to={{ pathname: '/sign-in' }} />;
+	if (!(location.state && location.state.email)) return <Redirect to={{ pathname: '/sign-in' }} />;
 	const email = location.state.email;
 
 	const handleOnCodeChange = (e) => setConfirmationCode(e.target.value);

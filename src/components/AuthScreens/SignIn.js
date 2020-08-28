@@ -26,7 +26,7 @@ const SignIn = ({ history }) => {
 				});
 			}
 			notyf.error(error);
-			console.error('Sign in error: ', error);
+			console.error('Error at Sign in: ', error);
 		});
 	});
 
