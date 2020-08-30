@@ -24,7 +24,6 @@ const SignUp = ({ history }) => {
 		const { email, password } = data;
 
 		const meetsAllRequirements = Object.keys(passwordRequirements).every((key) => passwordRequirements[key]);
-
 		if (!meetsAllRequirements) return;
 
 		await Auth.signUp({

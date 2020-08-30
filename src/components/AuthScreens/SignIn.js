@@ -24,7 +24,7 @@ const SignIn = ({ history }) => {
 					type: 'info', 
 					message: 'User not confirmed, redirecting...' 
 				});
-			}
+			};
 			notyf.error(error);
 			console.error('Error at Sign in: ', error);
 		});

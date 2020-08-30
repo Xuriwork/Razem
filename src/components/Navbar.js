@@ -12,20 +12,15 @@ const Navbar = ({ history }) => {
 
 	const handleSignOut = async () => {
 		await Auth.signOut()
-		.then(() => {
-			setUser(null);
-			history.push('/sign-in');
-		})
-		.catch((error) => console.error('Error signing out: ', error));
+			.then(() => {
+				setUser(null);
+				history.push('/sign-in');
+			})
+			.catch((error) => console.error('Error signing out: ', error));
 	};
 
 	return (
 		<nav className='navbar'>
-			{isAuthed && (
-				<button className='sign-out-button' onClick={handleSignOut}>
-					Sign Out
-				</button>
-			)}
 			<div className='more-button-container'>
 				<button className='more-button' onClick={toggleDropdown}>
 					<img src={MoreIcon} alt='' />
@@ -34,7 +29,7 @@ const Navbar = ({ history }) => {
 			{dropdownOpen && (
 				<div className='more-items-dropdown'>
 					<ul>
-						<li></li>
+						{isAuthed && <li onClick={handleSignOut}>Sign Out</li>}
 					</ul>
 				</div>
 			)}

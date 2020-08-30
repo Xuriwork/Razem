@@ -56,7 +56,6 @@
 .sign-out-button {
 	margin-right: 15px;
 	font-size: 1em;
-	color: #ffffff;
 }
 
 .more-button-container {
@@ -77,10 +76,9 @@
 }
 
 .more-items-dropdown {
-	width: 180px;
+	width: 150px;
 	position: absolute;
 	background-color: #ffffff;
-	min-height: 60px;
 	right: 0;
 	top: 45px;
 	border-radius: 8px;
@@ -90,6 +88,19 @@
 	select {
 		right: 0;
 		width: 100%;
+	}
+
+	ul {
+		li {
+			padding: 4px 5px;
+			border-radius: 4px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #5f5ff3;
+				color: #ffffff;
+			}
+		}
 	}
 }
 
